@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="img/round-brush.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Image Editor</title>
+    </head>
+
+    <body>
+        <main class="container">
+            <div class="control-zone">
+                <div class="control-zone__controls">
+                    <div class="control-zone__input-group">
+                        <label for="blur" class="control-zone__input-label">Blur</label>
+                        <input type="range" id="blur" class="control-zone__filter-input" min="0" max="100" step="1" value="0" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="grayscale" class="control-zone__input-label">Grayscale</label>
+                        <input type="range" id="grayscale" class="control-zone__filter-input" min="0" max="1" step="0.01" value="0" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="invert" class="control-zone__input-label">Invert</label>
+                        <input type="range" id="invert" class="control-zone__filter-input" min="0" max="1" step="0.01" value="0" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="sepia" class="control-zone__input-label">Sepia</label>
+                        <input type="range" id="sepia" class="control-zone__filter-input" min="0" max="1" step="0.01" value="0" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="hue" class="control-zone__input-label">Hue-rotate</label>
+                        <input type="range" id="hue" class="control-zone__filter-input" min="0" max="360" step="1" value="0" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="opacity" class="control-zone__input-label">Opacity</label>
+                        <input type="range" style="direction: rtl" id="opacity" class="control-zone__filter-input" min="0" max="1" step="0.01" value="1" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="brightness" class="control-zone__input-label">Brightness</label>
+                        <input type="range" id="brightness" class="control-zone__filter-input" min="0" max="2" step="0.01" value="1" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="contrast" class="control-zone__input-label">Contrast</label>
+                        <input type="range" id="contrast" class="control-zone__filter-input" min="0" max="2" step="0.01" value="1" disabled>
+                    </div>
+                    <div class="control-zone__input-group">
+                        <label for="saturation" class="control-zone__input-label">Saturation</label>
+                        <input type="range" id="saturate" class="control-zone__filter-input" min="0" max="2" step="0.01" value="1" disabled>
+                    </div>
+
+                    <div class="control-zone__options">
+                        <button class="btn btn--theme">
+                            <svg class="btn__icon btn__icon--0">
+                                <use href="img/light-bulb.svg#bulb"></use>
+                            </svg>
+                        </button>
+                        <button class="btn btn--reset btn--disabled">
+                            <svg class="btn__icon btn__icon--1">
+                                <use href="img/spinner.svg#spinner"></use>
+                            </svg>
+                        </button>
+                        <button class="btn btn--remove btn--disabled">
+                            <svg class="btn__icon btn__icon--2">
+                                <use href="img/cross.svg#cross"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-zone__download">
+                    <a class="btn-download btn--disabled" download>
+                        Download
+                    </a>
+                </div>
+            </div>
+
+            <div class="drop-zone">
+                <div class="drop-zone__area">
+                    <canvas class="drop-zone__canvas" width="0" height="0"></canvas>
+                    <span class="drop-zone__text">Drop Your Image Here</span>
+                    <button class="drop-zone__button">Select Image</button>
+                    <input class="drop-zone__input" type="file">
+                </div>
+            </div>
+        </main>
+        <script src="js/app.js"></script>
+    </body>
+</html>

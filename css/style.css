@@ -1,0 +1,319 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100%;
+    font-family: "Lato", sans-serif;
+    font-size: 1.6rem;
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #fff;
+    --light-background-color: #333;
+    --dark-background-color: #222;
+    --shadow-color: rgba(255,255,255,.15);
+    --background-drop-zone-color: #333;
+    --drop-zone-color: #fff;
+}
+
+:root[data-theme="light"] {
+    --primary-color: #fff;
+    --light-background-color: #333;
+    --dark-background-color: #222;
+    --shadow-color: rgba(255,255,255,.15);
+    --background-drop-zone-color: #eee;
+    --drop-zone-color: #666;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.drop-zone {
+    flex: 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 5rem;
+    background-color: var(--background-drop-zone-color);
+    transition: all .5s;
+}
+
+.drop-zone__area {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-drop-zone-color);
+    text-align: center;
+    transition: all .5s;
+    pointer-events: none;
+}
+
+.drop-zone__canvas {
+    position: absolute;
+}
+
+.drop-zone__text {
+    color: var(--drop-zone-color);
+    font-size: 3rem;
+    transition: all .5s;
+}
+
+.drop-zone__button {
+    display: none;
+    padding: 2rem 5rem;
+    border: 1px solid currentColor;
+    background-color: transparent;
+    color: var(--drop-zone-color);
+    font-size: 2.3rem;
+    letter-spacing: 0.125rem;
+    outline: none;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.dragover-animation {
+    animation: dragover-text-animation 1s infinite;
+}
+
+.control-zone {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dark-background-color);
+    color: var(--primary-color);
+}
+
+.control-zone__controls {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.control-zone__input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.control-zone__input-label {
+    margin-right: 1rem;
+    color: var(--primary-color);
+}
+
+.control-zone__filter-input {
+    height: 1.5rem;
+    background: var(--light-background-color);
+    border-radius: 0px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.control-zone__filter-input:hover {
+    opacity: 1;
+}
+
+.control-zone__filter-input::-webkit-slider-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0;
+    background-color: var(--primary-color);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.control-zone__filter-input::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.control-zone__filter-input:active::-webkit-slider-thumb {
+    box-shadow: 0 0 10px 2px var(--shadow-color);
+}
+
+.control-zone__filter-input:active::-moz-range-thumb {
+    box-shadow: 0 0 10px 2px var(--shadow-color);
+}
+
+.control-zone__filter-input[disabled] {
+    opacity: .25;
+}
+
+.control-zone__options {
+    align-self: center;
+    display: flex;
+}
+
+.control-zone__download {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    align-items: stretch;
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    border: 1px solid var(--primary-color);
+    outline: none;
+    background-color: transparent;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.btn:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 15px 1px var(--shadow-color);
+    transform: scale(1.1);
+}
+
+.btn:hover .btn__icon {
+    fill: var(--light-background-color);
+}
+
+.btn--reset:hover .btn__icon{
+    transform: rotate(360deg);
+}
+
+.btn__icon {
+    flex: 1 0 0;
+    fill: var(--primary-color);
+    transition: all .3s;
+}
+
+.btn__icon--2 {
+    transform: scale(1.5);
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 2rem 5rem;
+    border: 1px solid currentColor;
+    color: var(--primary-color);
+    background-image: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+    background-size: 200%;
+    background-position: top right;
+    font-size: 2.3rem;
+    letter-spacing: 0.125rem;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    color: var(--light-background-color);
+    background-position: top left;
+    box-shadow: 0 0 30px 5px var(--shadow-color);
+    transform: scale(1.05);
+}
+
+.btn--disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+@keyframes dragover-text-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 9px;
+    }
+
+    .control-zone {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .control-zone {
+        order: 1;
+    }
+    
+    .control-zone__controls {
+        padding: 2rem;
+        margin-bottom: 0;
+    }
+
+    .control-zone__input-group {
+        margin-bottom: 1rem;
+    }
+
+    .control-zone__download {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    .drop-zone {
+        order: 0;
+        padding: 1rem;
+    }
+}
+
+@media (any-pointer: coarse) {
+    .drop-zone__text {
+        display: none;
+    }
+
+    .drop-zone__button {
+        display: inline-block;
+    }
+
+    .drop-zone__area {
+        pointer-events: initial;
+    }
+}
